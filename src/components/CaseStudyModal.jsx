@@ -3,6 +3,8 @@ import { X, ArrowUpRight, CheckCircle2, Layers, Cpu, Globe } from 'lucide-react'
 
 export default function CaseStudyModal({ project, onClose }) {
   useEffect(() => {
+    if (!project) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
@@ -13,7 +15,7 @@ export default function CaseStudyModal({ project, onClose }) {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [onClose]);
+  }, [project, onClose]);
 
   if (!project) return null;
 

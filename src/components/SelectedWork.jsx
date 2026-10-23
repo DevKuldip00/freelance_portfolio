@@ -346,10 +346,12 @@ export default function SelectedWork() {
       </div>
 
       {/* Case Study Modal */}
-      <CaseStudyModal 
-        project={activeModalProject} 
-        onClose={() => setActiveModalProject(null)} 
-      />
+      {activeModalProject && (
+        <CaseStudyModal 
+          project={activeModalProject} 
+          onClose={() => setActiveModalProject(null)} 
+        />
+      )}
     </section>
   );
 }
